@@ -15,7 +15,6 @@ import java.util.Scanner;
 public class TaskClass {
 
     public void executeFileRead(String filePath, int numberOfRacers) {
-        StringBuilder sBuilder = new StringBuilder();
         Student[] students = new Student[numberOfRacers];
         int i = 0;
         try {
@@ -41,8 +40,9 @@ public class TaskClass {
         } catch (FileNotFoundException ex) {
             System.err.println("File not found!");
         }
-        System.out.println(sBuilder.toString());
-     
+        
+        System.out.println(students[0].name);
+        System.out.println(students[0].city);        
     }
 
     public void executeFileWrite(String filePath) {
