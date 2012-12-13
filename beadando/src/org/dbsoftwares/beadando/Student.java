@@ -19,8 +19,7 @@ public class Student {
     String fifthScore;
     int avgScore;
 
-    protected void calculateAvgScore(String firstScore, String secondScore,
-            String thirdScore, String fourthScore, String fifthScore) {
+    protected int calculateAvgScore() {
         int firstScoreNum = Integer.parseInt(firstScore);
         int secondScoreNum = Integer.parseInt(secondScore);
         int thirdScoreNum = Integer.parseInt(thirdScore);
@@ -29,5 +28,6 @@ public class Student {
 
         this.avgScore = Math.round((firstScoreNum + secondScoreNum + thirdScoreNum
                 + fourthScoreNum + fifthScoreNum) / 5);
+        return avgScore;
     }
 }
