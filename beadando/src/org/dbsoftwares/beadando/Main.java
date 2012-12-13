@@ -47,10 +47,10 @@ public class Main {
             case 2:
                 // Fájlba írás
                 System.out.println("Kérem adja meg a fájl abszolút elérési útját:");
-                //filePath = input.nextLine();
-                taskToDo.executeFileWrite("C:\\INSTALL\\text2.txt");
+                filePath = input.nextLine();
+                taskToDo.executeFileWrite(filePath);
                 break;
-            case 5:
+            case 3:
                 // sugó kiirása
                 displayHelp();
                 break;
