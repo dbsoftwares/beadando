@@ -48,11 +48,11 @@ public class Main {
                 // Fájlba írás
                 System.out.println("Kérem adja meg a fájl abszolút elérési útját:");
                 //filePath = input.nextLine();
-                taskToDo.executeFileWrite("C:\\INSTALL\\text.txt");
+                taskToDo.executeFileWrite("C:\\INSTALL\\text2.txt");
                 break;
             case 5:
                 // sugó kiirása
-                //displayHelp();
+                displayHelp();
                 break;
             default:
                 System.out.println("Error: hiba, a megadott ertek helytelen, a helyes ertek 1-5 intervallumba esik");

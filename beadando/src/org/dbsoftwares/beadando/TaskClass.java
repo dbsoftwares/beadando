@@ -55,7 +55,8 @@ public class TaskClass {
             FileWriter fstream = new FileWriter(fileToWrite);
             BufferedWriter out = new BufferedWriter(fstream);
             
-            out.print("this file has been created!");
+            out.append("this file has been created!");
+            out.flush();
             out.close();
         } catch (IOException ex) {
             System.err.println("File not found!");
