@@ -78,8 +78,7 @@ public class Main {
                 + "Negyedik pont (numerikus decimalis egesz)\n"
                 + "Otodik pont (numerikus decimalis egesz)\n");
 
-        System.out.println("A 2.)-es feladat a file-ba valo irasert felel es a kepernyore iratasert,\n"
-                + "nevet es varost iratja ki\n"
+        System.out.println("A 2.)-es feladat a file-ba valo irasert felel,\n"
                 + "azoket kiknek a pontja tobb illetve nagyobb mint 40%\n"
                 + "a fajlba es a kepernyore iratas ugyan ugy tortenik mint a specifikacioban:\n"
                 + "strukturaja, illetve szerkezete es formaja: nev , szokoz , varos\n");

@@ -16,9 +16,12 @@ import java.util.Scanner;
  * @author Tóth Péter György
  */
 public class TaskClass {
-
+    
+    Student[] students;
+    StringBuilder sBuilder = new StringBuilder();
+            
     public void executeFileRead(String filePath, int numberOfRacers) {
-        Student[] students = new Student[numberOfRacers];
+        students = new Student[numberOfRacers];
         int i = 0;
         try {
             File fileToRead = new File(filePath);
@@ -55,11 +58,28 @@ public class TaskClass {
             FileWriter fstream = new FileWriter(fileToWrite);
             BufferedWriter out = new BufferedWriter(fstream);
             
-            out.append("this file has been created!");
+            out.append(sBuilder.toString());
             out.flush();
             out.close();
         } catch (IOException ex) {
             System.err.println("File not found!");
         }
+    }
+    
+    private void printSuccessedStudents(Student[] students){
+        final int maxScore = 100;
+        
+        for (int i = 0; i <= students.length; i++) {
+            if (students[i].avgScore > 40){
+                // megvan a 40%, kiírom a nevét, meg a várost
+                System.out.println(students[i].name+" "+students[i].city);
+                
+                // hozzárakom a stringBuilderhez, amit majd kiírok a fájlba
+                sBuilder.append(students[i].name+" "+students[i].city+"\n");
+            }
+        }
+ 
+                
+        
     }
 }
