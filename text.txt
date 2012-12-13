@@ -1,0 +1,28 @@
+﻿elso versenyzo
+pest
+10
+20
+11
+0
+0
+masodik versenyzo
+buda
+10
+10
+10
+11
+0
+harmadik versenyzo
+haza
+20
+20
+0
+20
+20
+negyedik
+home
+1
+2
+3
+4
+5

@@ -17,21 +17,20 @@ import java.util.Scanner;
  * @author Tóth Péter György
  */
 public class TaskClass {
-    
+
     Student[] students;
     StringBuilder sBuilder = new StringBuilder();
-            
+
     public void executeFileRead(String filePath, int numberOfRacers) {
         students = new Student[numberOfRacers];
         int i = 0;
         try {
             File fileToRead = new File(filePath);
             Scanner inputFile = new Scanner(fileToRead);
-            System.out.println(inputFile.hasNextLine());
-            while (inputFile.hasNextLine()) {
+            while (i < numberOfRacers && inputFile.hasNextLine()) {
                 /**
-                 * create a new student object
-                 * every readed line is loaded to the right place int the object
+                 * create a new student object every readed line is loaded to
+                 * the right place int the object
                  */
                 students[i] = new Student();
                 students[i].name = inputFile.nextLine();
@@ -42,19 +41,16 @@ public class TaskClass {
                 students[i].fourthScore = inputFile.nextLine();
                 students[i].fifthScore = inputFile.nextLine();
                 students[i].calculateSumScore();
-                System.out.println(i);
+
+                if (students[i].sumScore >= 40) {
+                    // got the 40%
+                    System.out.println(students[i].name + " " + students[i].city);
+                }
                 i++;
             }
             inputFile.close();
         } catch (FileNotFoundException ex) {
             System.err.println("File not found!");
-        }
-        
-        for (i = 0; i == students.length; i++) {
-            if (students[i].sumScore >= 40){
-                // got the 40%
-                System.out.println(students[i].name+" "+students[i].city);
-            }
         }
     }
 
@@ -63,8 +59,8 @@ public class TaskClass {
             File fileToWrite = new File(filePath);
             FileWriter fstream = new FileWriter(fileToWrite);
             BufferedWriter out = new BufferedWriter(fstream);
-            
-            out.append("this file has been created @ "+Calendar.getInstance().getTime()+"!");
+
+            out.append("this file has been created @ " + Calendar.getInstance().getTime() + "!");
             out.flush();
             out.close();
         } catch (IOException ex) {
