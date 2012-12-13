@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Calendar;
 import java.util.Scanner;
 
 /**
@@ -25,8 +26,8 @@ public class TaskClass {
         int i = 0;
         try {
             File fileToRead = new File(filePath);
-            System.out.println(fileToRead);
             Scanner inputFile = new Scanner(fileToRead);
+            System.out.println(inputFile.hasNextLine());
             while (inputFile.hasNextLine()) {
                 /**
                  * create a new student object
@@ -40,6 +41,8 @@ public class TaskClass {
                 students[i].thirdScore = inputFile.nextLine();
                 students[i].fourthScore = inputFile.nextLine();
                 students[i].fifthScore = inputFile.nextLine();
+                students[i].calculateSumScore();
+                System.out.println(i);
                 i++;
             }
             inputFile.close();
@@ -47,9 +50,12 @@ public class TaskClass {
             System.err.println("File not found!");
         }
         
-        System.out.println(students[0].name);
-        System.out.println(students[0].city); 
-        System.out.println(students[0].calculateAvgScore());
+        for (i = 0; i == students.length; i++) {
+            if (students[i].sumScore >= 40){
+                // got the 40%
+                System.out.println(students[i].name+" "+students[i].city);
+            }
+        }
     }
 
     public void executeFileWrite(String filePath) {
@@ -58,28 +64,11 @@ public class TaskClass {
             FileWriter fstream = new FileWriter(fileToWrite);
             BufferedWriter out = new BufferedWriter(fstream);
             
-            out.append(sBuilder.toString());
+            out.append("this file has been created @ "+Calendar.getInstance().getTime()+"!");
             out.flush();
             out.close();
         } catch (IOException ex) {
             System.err.println("File not found!");
         }
-    }
-    
-    private void printSuccessedStudents(Student[] students){
-        final int maxScore = 100;
-        
-        for (int i = 0; i <= students.length; i++) {
-            if (students[i].avgScore > 40){
-                // megvan a 40%, kiírom a nevét, meg a várost
-                System.out.println(students[i].name+" "+students[i].city);
-                
-                // hozzárakom a stringBuilderhez, amit majd kiírok a fájlba
-                sBuilder.append(students[i].name+" "+students[i].city+"\n");
-            }
-        }
- 
-                
-        
     }
 }
